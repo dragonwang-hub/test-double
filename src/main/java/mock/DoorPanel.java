@@ -2,7 +2,7 @@ package mock;
 
 import java.util.stream.Stream;
 
-class DoorPanel {
+public class DoorPanel {
     void close() {
         Stream.of("East Door", "West Door", "North Door", "South Door")
                 .forEach((door) -> {
@@ -17,6 +17,16 @@ class DoorPanel {
                     */
                     System.out.println(door + "is closed");
                 });
+    }
+}
+
+class MockDoorPanel extends DoorPanel{
+    public boolean isCallClosed() {
+        return isCallClosed;
+    }
+    boolean isCallClosed = false;
+    void close() {
+        isCallClosed = true;
     }
 }
 
