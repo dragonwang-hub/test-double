@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-import stub.GradeSystem;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class GradeServiceTestOfMockito {
@@ -28,11 +28,9 @@ public class GradeServiceTestOfMockito {
         securityCenter = new SecurityCenter(doorPanel);
     }
 
-
     @Test
     public void shouldVerifyDoorIsClosed() {
         securityCenter.switchOn();
-        //assertTrue(doorPanel.isCallClosed());
+        verify(doorPanel, times(1)).close();
     }
-
 }
